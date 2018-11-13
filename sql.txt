@@ -1,0 +1,140 @@
+CREATE TABLE Department
+(
+    DCode VARCHAR(5) NOT NULL,
+    DName VARCHAR(20) NOT NULL,
+    PRIMARY KEY (DCode)
+);
+
+CREATE TABLE Student
+ (
+     RollNo INTEGER NOT NULL,
+     SName VARCHAR(30) NOT NULL,
+     Batch YEAR NOT NULL,
+     Branch VARCHAR(5) NOT NULL,
+     DoB DATE NOT NULL,
+     PRIMARY KEY (RollNo),
+     FOREIGN KEY (Branch) REFERENCES Department(DCode)
+ )
+
+CREATE TABLE BG
+(
+    BloodG VARCHAR(5) NOT NULL,
+    PRIMARY KEY(BloodG)
+)
+
+ALTER TABLE student
+ADD(
+	BloodG VARCHAR(5),
+	FOREIGN KEY(BloodG) REFERENCES bg(BloodG)
+   )
+
+CREATE TABLE Faculty
+ (
+     FID INTEGER NOT NULL,
+     FName VARCHAR(30) NOT NULL,
+     Dept VARCHAR(5) NOT NULL,
+     DoB DATE NOT NULL,
+     BloodG VARCHAR(5),
+     FOREIGN KEY (BloodG) REFERENCES bg(BloodG),
+     PRIMARY KEY (FID),
+     FOREIGN KEY (Dept) REFERENCES Department(DCode)
+ )
+
+CREATE TABLE Staff
+ (
+     EID INTEGER NOT NULL,
+     EName VARCHAR(30) NOT NULL,
+     DoB DATE NOT NULL,
+     BloodG VARCHAR(5),
+     FOREIGN KEY (BloodG) REFERENCES bg(BloodG),
+     PRIMARY KEY (EID)
+ )
+
+CREATE TABLE p_type
+(
+    type VARCHAR(15) NOT NULL,
+    PRIMARY KEY (type)
+    );
+
+CREATE TABLE passenger
+(
+    ID INTEGER NOT NULL,
+    Type VARCHAR(15) NOT NULL,
+    PRIMARY KEY (ID, type),
+    FOREIGN KEY(Type) REFERENCES p_type(type)
+    )
+
+ALTER TABLE student
+ADD FOREIGN KEY (RollNo) REFERENCES passenger(ID)
+
+ALTER TABLE faculty
+ADD FOREIGN KEY (FID) REFERENCES passenger(ID);
+
+ALTER TABLE staff
+ADD FOREIGN KEY (EID) REFERENCES passenger(ID)
+
+CREATE TABLE Guest
+ (
+     GID INTEGER NOT NULL,
+     GName VARCHAR(30) NOT NULL,
+     DoB DATE NOT NULL,
+     HostID INTEGER NOT NULL,
+     HostType VARCHAR(15) NOT NULL,
+     BloodG VARCHAR(5) NOT NULL,
+     FOREIGN KEY (BloodG) REFERENCES bg(BloodG),
+     PRIMARY KEY (GID),
+     FOREIGN KEY (HostID) REFERENCES passenger(ID),
+     FOREIGN KEY (HostType) REFERENCES passenger(Type),
+     FOREIGN KEY (GID) REFERENCES passenger(ID)
+ )
+
+CREATE TABLE STOPS
+(
+    StopName VARCHAR(20) NOT NULL,
+    StopType VARCHAR(10) NOT NULL,
+	PRIMARY KEY (StopName)
+)  
+
+CREATE TABLE Routes
+(
+    RID INTEGER NOT NULL,
+    STime TIME,
+    DTime TIME,
+    Src VARCHAR(20),
+    Dst VARCHAR(20),
+    Capacity INTEGER,
+    PRIMARY KEY (RID),
+    FOREIGN KEY (Src) REFERENCES Stops(StopName),
+    FOREIGN KEY (Dst) REFERENCES Stops(StopName)
+)
+
+
+CREATE TABLE bus_instances
+(
+    BID INTEGER NOT NULL,
+    RID INTEGER NOT NULL,
+    Capacity INTEGER NOT NULL,
+    BusDate DATE,
+    DepTime TIME,
+    PRIMARY KEY (BID),
+    FOREIGN KEY (RID) REFERENCES routes(RID),
+    FOREIGN KEY (Capacity) REFERENCES routes(Capacity),
+    FOREIGN KEY (DepTime) REFERENCES routes(DTime)
+)
+
+CREATE TABLE Seat_Matrix
+(
+    BID INTEGER NOT NULL,
+    RID INTEGER NOT NULL,
+    SeatNo INTEGER NOT NULL,
+    Passenger INTEGER DEFAULT NULL,
+    PRIMARY KEY (BID, RID, SeatNo),
+    FOREIGN KEY (RID) REFERENCES routes(RID),
+    FOREIGN KEY (Passenger) REFERENCES passenger(ID)
+)
+
+INSERT INTO p_type VALUES ('Student'), ('Faculty' ), ('Staff'), ('Guest')
+    
+INSERT INTO bg VALUES ('A+'), ('A-' ), ('B+'), ('B-'), ('AB+'), ('AB-'), ('O+'), ('O-')
+
+ALTER TABLE department MODIFY COLUMN DName VARCHAR(50)
