@@ -4,9 +4,6 @@
 --
 -- Table structure for table `bg`
 --
--- Creation: Nov 13, 2018 at 07:20 PM
--- Last update: Nov 13, 2018 at 08:27 PM
---
 
 DROP TABLE IF EXISTS `bg`;
 CREATE TABLE IF NOT EXISTS `bg` (

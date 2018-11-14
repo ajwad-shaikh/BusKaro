@@ -4,9 +4,6 @@
 --
 -- Table structure for table `p_type`
 --
--- Creation: Nov 13, 2018 at 07:22 PM
--- Last update: Nov 13, 2018 at 08:24 PM
---
 
 DROP TABLE IF EXISTS `p_type`;
 CREATE TABLE IF NOT EXISTS `p_type` (

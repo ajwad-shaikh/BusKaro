@@ -4,8 +4,6 @@
 --
 -- Table structure for table `student`
 --
--- Creation: Nov 13, 2018 at 07:23 PM
---
 
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
@@ -19,3 +17,10 @@ CREATE TABLE IF NOT EXISTS `student` (
   KEY `Branch` (`Branch`),
   KEY `BloodG` (`BloodG`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`RollNo`, `SName`, `Batch`, `Branch`, `DoB`, `BloodG`) VALUES
+(2017333, 'Ajwad Shaikh', 2017, 'CSE', '1998-07-01', 'B+');

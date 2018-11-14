@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 13, 2018 at 08:54 PM
+-- Generation Time: Nov 14, 2018 at 09:25 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -21,3 +21,5 @@ SET time_zone = "+00:00";
 --
 -- Database: `buskaro`
 --
+CREATE DATABASE IF NOT EXISTS `buskaro` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `buskaro`;

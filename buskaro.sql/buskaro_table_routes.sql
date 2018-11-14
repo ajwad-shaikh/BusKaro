@@ -4,8 +4,6 @@
 --
 -- Table structure for table `routes`
 --
--- Creation: Nov 13, 2018 at 08:16 PM
---
 
 DROP TABLE IF EXISTS `routes`;
 CREATE TABLE IF NOT EXISTS `routes` (

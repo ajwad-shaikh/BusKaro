@@ -4,8 +4,6 @@
 --
 -- Table structure for table `guest`
 --
--- Creation: Nov 13, 2018 at 07:21 PM
---
 
 DROP TABLE IF EXISTS `guest`;
 CREATE TABLE IF NOT EXISTS `guest` (

@@ -4,9 +4,6 @@
 --
 -- Table structure for table `stops`
 --
--- Creation: Nov 13, 2018 at 07:22 PM
--- Last update: Nov 13, 2018 at 08:39 PM
---
 
 DROP TABLE IF EXISTS `stops`;
 CREATE TABLE IF NOT EXISTS `stops` (

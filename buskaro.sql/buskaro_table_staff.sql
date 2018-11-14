@@ -4,8 +4,6 @@
 --
 -- Table structure for table `staff`
 --
--- Creation: Nov 13, 2018 at 07:22 PM
---
 
 DROP TABLE IF EXISTS `staff`;
 CREATE TABLE IF NOT EXISTS `staff` (

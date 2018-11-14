@@ -4,9 +4,6 @@
 --
 -- Table structure for table `department`
 --
--- Creation: Nov 13, 2018 at 08:33 PM
--- Last update: Nov 13, 2018 at 08:47 PM
---
 
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE IF NOT EXISTS `department` (

@@ -4,8 +4,6 @@
 --
 -- Table structure for table `seat_matrix`
 --
--- Creation: Nov 13, 2018 at 08:21 PM
---
 
 DROP TABLE IF EXISTS `seat_matrix`;
 CREATE TABLE IF NOT EXISTS `seat_matrix` (

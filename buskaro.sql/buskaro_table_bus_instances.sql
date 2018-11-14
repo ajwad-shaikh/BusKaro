@@ -4,8 +4,6 @@
 --
 -- Table structure for table `bus_instances`
 --
--- Creation: Nov 13, 2018 at 08:16 PM
---
 
 DROP TABLE IF EXISTS `bus_instances`;
 CREATE TABLE IF NOT EXISTS `bus_instances` (
