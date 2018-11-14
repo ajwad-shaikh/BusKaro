@@ -138,3 +138,25 @@ INSERT INTO p_type VALUES ('Student'), ('Faculty' ), ('Staff'), ('Guest')
 INSERT INTO bg VALUES ('A+'), ('A-' ), ('B+'), ('B-'), ('AB+'), ('AB-'), ('O+'), ('O-')
 
 ALTER TABLE department MODIFY COLUMN DName VARCHAR(50)
+
+INSERT INTO department VALUES 
+            ('CSE'  ,   'Computer Science and Engineering'), 
+            ('ECE'  ,   'Electronics and Communication Engineering'),
+            ('ME'   ,   'Mechanical Engineering'),
+            ('NS'   ,   'Natural Sciences');
+            
+INSERT INTO department VALUES ('DS', 'Design')
+
+INSERT INTO stops VALUES
+	('PG Hostel', 'Institute'),
+        ('Hall 4', 'Institute'),
+        ('Nescafe (Hall 1)', 'Institute'),
+        ('Hexagon Canteen', 'Institute'),
+        ('Narmada Residency', 'Institute'),
+        ('IIITDMJ Main Gate', 'Institute'),
+        ('Railway Station', 'City'),
+        ('Empire Talkies', 'City'),
+        ('Russel Chowk', 'City'),
+        ('Penty Naka', 'City')
+
+ALTER TABLE passenger ADD pwd VARCHAR(40)
