@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS `student` (
   `SName` varchar(30) DEFAULT NULL,
   `Batch` year(4) NOT NULL,
   `Branch` varchar(5) NOT NULL,
-  `DoB` date NOT NULL,
   `BloodG` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`RollNo`),
   KEY `Branch` (`Branch`),
@@ -22,5 +21,5 @@ CREATE TABLE IF NOT EXISTS `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`RollNo`, `SName`, `Batch`, `Branch`, `DoB`, `BloodG`) VALUES
-(2017333, 'Ajwad Shaikh', 2017, 'CSE', '1998-07-01', 'B+');
+INSERT INTO `student` (`RollNo`, `SName`, `Batch`, `Branch`, `BloodG`) VALUES
+(2017333, 'Ajwad Shaikh', 2017, 'CSE', 'B+');

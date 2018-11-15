@@ -34,6 +34,8 @@ require('dbconn.php');
 
 	<h1>BusKaro</h1>
 	<h3>Book Bus Tickets On The Go</h3>
+	
+	<br>
 
 	<div class="container">
 

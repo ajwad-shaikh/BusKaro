@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS `guest`;
 CREATE TABLE IF NOT EXISTS `guest` (
   `GID` int(11) NOT NULL,
   `GName` varchar(30) NOT NULL,
-  `DoB` date NOT NULL,
   `HostID` int(11) NOT NULL,
   `HostType` varchar(15) NOT NULL,
   `BloodG` varchar(5) NOT NULL,
