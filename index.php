@@ -23,6 +23,8 @@ require('dbconn.php');
 	<!-- Fonts -->
 		<link href="//fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
 	<!-- //Fonts -->
+	<!-- JQuery -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 </head>
 <!-- //Head -->
@@ -40,12 +42,12 @@ require('dbconn.php');
 			<form action="index.php" method="post">
 				<input type="number" Name="UserID" placeholder="User ID" required="">
 				<input type="password" Name="Password" placeholder="Password" required="">
-			
-				<select name="Type" id="Type">
+				<p> Sign In As </p>
+				<select name="Type" id="type">
 					<option value="Student">Student</option>
 					<option value="Faculty">Faculty</option>
 					<option value="Staff">Staff</option>
-					<option value="Guest">Guest</option>
+					<!--<option value="Guest">Guest</option>-->
 				</select>
 				<br>
 				<br>
@@ -63,18 +65,51 @@ require('dbconn.php');
 		<div class="register">
 			<h2>Sign Up</h2>
 			<form action="index.php" method="post">
+				<p> Sign Up As </p>
+				<select name="Type" id="Type">
+					<option value="Student">Student</option>
+					<option value="Faculty">Faculty</option>
+					<option value="Staff">Staff</option>
+					<!--<option value="Guest">Guest</option>-->
+				</select>
+				<br> <br>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$('#Type').on('change', function(){
+							if(this.value == 'Faculty'){
+								$("#batch").hide();
+								$("#dept").show();
+							}
+							else if(this.value == 'Staff'){
+								$("#batch").hide();
+								$("#dept").hide();
+							}
+							else if(this.value == 'Student'){
+								$("#batch").show();
+								$("#dept").show();
+							}
+						});
+					});
+				</script>
 				<input type="number" Name="UserID" placeholder="User ID" required="">
 				<input type="text" Name="Name" placeholder="Name" required>
 				<input type="password" Name="Password" placeholder="Password" required>
-				<input type="number" Name="Batch" placeholder="Batch" required>
-				
+				<div id='batch'>
+				<input type="number" Name="Batch" placeholder="Batch">
+				</div>
+				<div id = 'dept'>
+				<p> Department </p>
 				<select name="Dept" id="Dept">
 					<option value="CSE">CSE</option>
 					<option value="ECE">ECE</option>
 					<option value="ME">ME</option>
 					<option value="NS">NS</option>
 				</select>
+				</div>
 				
+				<br>
+				
+				<p> Blood Group </p>
 				<select name="BloodG" id="BloodG">
 					<option value="A+">A+</option>
 					<option value="A-">A-</option>
@@ -85,17 +120,8 @@ require('dbconn.php');
 					<option value="O+">O+</option>
 					<option value="O-">O-</option>
 				</select>
-				<br> <br>
 				
-				<select name="Type" id="Type">
-					<option value="Student">Student</option>
-					<option value="Faculty">Faculty</option>
-					<option value="Staff">Staff</option>
-					<option value="Guest">Guest</option>
-				</select>
 				<br><br>
-				<p> Date of Birth </p>
-				<input type="date" Name="DoB" required>
 				
 			<div class="send-button">
 			    <input type="submit" name="signup" value="Sign Up">
@@ -120,7 +146,7 @@ if(isset($_POST['signin']))
  $p=$_POST['Password'];
  $c=$_POST['Type'];
 
- $sql="select * from buskaro.passenger where ID='$u'";
+ $sql="SELECT * FROM buskaro.passenger WHERE ID='$u' AND Type='$c'";
 
  $result = $conn->query($sql);
 $row = $result->fetch_assoc();
@@ -151,28 +177,31 @@ if(isset($_POST['signup']))
 	$name=$_POST['Name'];
 	$batch=$_POST['Batch'];
 	$dept=$_POST['Dept'];
-	$dob=$_POST['DoB'];
 	$bloodG=$_POST['BloodG'];
 	$type=$_POST['Type'];
-
-	$sql1="insert into buskaro.passenger (ID,Type,Pwd) values ('$userID','$type','$password')";
-	if($type=='Student')
-	{	echo'Student';
-		$sql2="insert into buskaro.student (RollNo, SName, Batch, Branch, DoB, BloodG) values ('$userID','$name', '$batch', '$dept', '$bloodG')";
 	
+	$conn->query('SET autocommit = OFF;');
+	
+	$sql0 = "START TRANSACTION;";
+	$sql1="INSERT INTO buskaro.passenger (ID,Type,Pwd) VALUES ('$userID','$type','$password');";
+	if($type=='Student')
+	{	
+		$sql2="INSERT INTO buskaro.student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
 	}
 	else if($type=='Faculty')
-		$sql2="insert into buskaro.faculty (RollNo, SName, Batch, Branch, DoB, BloodG) values ('$userID','$name', '$batch', '$dept', '$bloodG')";
+		$sql2="INSERT INTO buskaro.faculty (FID, FName, Dept, BloodG) VALUES ('$userID','$name', '$dept', '$bloodG');";
 	else if($type=='Staff')
-		$sql2="insert into buskaro.staff (RollNo, SName, Batch, Branch, DoB, BloodG) values ('$userID','$name', '$batch', '$dept', '$bloodG')";
-	else if($type=='Guest')
-		$sql2="insert into buskaro.guest (RollNo, SName, Batch, Branch, DoB, BloodG) values ('$userID','$name', '$batch', '$dept', '$bloodG')";
-	if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
-echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-} else {
-    //echo "Error: " . $sql . "<br>" . $conn->error;
-echo "<script type='text/javascript'>alert('User Exists')</script>";
-}
+		$sql2="INSERT INTO buskaro.staff (EID, EName, BloodG) VALUES ('$userID','$name','$bloodG');";
+	//else if($type=='Guest')
+	//	$sql2="INSERT INTO buskaro.guest (GID, GName, Batch, Branch, DoB, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
+	if (($conn->query($sql0) === TRUE) && ($conn->query($sql1) === TRUE) && ($conn->query($sql2) === TRUE) ){
+		echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+		$conn->query('COMMIT;');
+	} else {
+		$conn->query('ROLLBACK;');
+		echo "Error: " . $sql . "<br>" . $conn->error;
+		echo "<script type='text/javascript'>alert('User Exists ".$conn->error."')</script>";
+	}
 }
 
 ?>

@@ -269,11 +269,16 @@ input[type="text"], input[type="password"], input[type="number"], input[type="da
     text-decoration: none;
 }
 
-.login a {
+.login p {
+    color: #CCC;
+    margin-bottom: 10px;
+}
+
+.login p a {
     color: #CCC;
 }
 
-.login a:hover {
+.login p a:hover {
     color: #FFF;
 }
 
@@ -556,6 +561,21 @@ input[type="text"], input[type="password"], input[type="number"], input[type="da
 }
 
 #Type{
+	width:40%;
+	color: #FFF;
+	text-align: center;
+	background-color: rgba(10, 10, 10, 0.77);
+	border: 2px ridge rgba(238, 238, 238, 0.13);
+	border-radius: 5px;
+	-moz-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+	-webkit-box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+	box-shadow: 0 -5px 10px 1px rgba(16, 16, 16, 0.57);
+    color: #CCC;
+    border: 1px solid rgba(238, 238, 238, 0.41);
+    border-width: thin;
+}
+
+select[id="type"] {
 	width:40%;
 	color: #FFF;
 	text-align: center;
