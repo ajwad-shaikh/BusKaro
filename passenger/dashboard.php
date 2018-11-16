@@ -19,6 +19,30 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+
+    .glyphicon.glyphicon-send {
+    font-size: 150px;
+    }
+
+    .glyphicon.glyphicon-pencil {
+    font-size: 150px;
+    }
+
+    .glyphicon.glyphicon-remove-circle {
+    font-size: 150px;
+    }
+
+    .glyphicon.glyphicon-list-alt {
+    font-size: 150px;
+    }
+
+    .glyphicon.glyphicon-user {
+    font-size: 150px;
+    }
+
+    .glyphicon.glyphicon-edit {
+    font-size: 150px;
+    }
   </style>
 </head>
 <body>
@@ -98,52 +122,52 @@
     <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
-  
+</div><br><br>
 <div class="container-fluid bg-3 text-center">    
-  <h2>Ticket Counter</h2><br>
+  <h2>Ticket Window</h2><br>
   <div class="row">
     <div class="col-sm-4">
-      <h3>Book Tickets</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Book Ticket</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href="#"><span class="glyphicon glyphicon-send"></span></a>
       </button>
       
     </div>
     <div class="col-sm-4"> 
-      <h3>Cancel Tickets</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Modify Ticket</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <!--<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">-->
+        <a href=""><span class="glyphicon glyphicon-pencil"></span></a>
       </button>
     </div>
     <div class="col-sm-4"> 
-      <h3>Modify Tickets</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Cancel Ticket</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href=""><span class="glyphicon glyphicon-remove-circle"></span></a>
       </button>
     </div>
   </div>
-</div><br>
+</div><br><br>
 
 <div class="container-fluid bg-3 text-center"> 
   <h2>Enquiries and Everything Else</h2><br>
   <div class="row">
     <div class="col-sm-4">
-      <h3>Weekly Bus Schedule</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Weekly Bus Schedule</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href="#"><span class="glyphicon glyphicon-list-alt"></span></a>
       </button>
     </div>
     <div class="col-sm-4"> 
-      <h3>Your BusKaro Profile</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Your BusKaro Profile</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href="index.php"><span class="glyphicon glyphicon-user"></span></a>
       </button>
     </div>
     <div class="col-sm-4"> 
-      <h3>Terms & Conditions</h3>
-      <button type = "button" class = "btn btn-default btn-block">
-        <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+      <h3>Terms & Conditions</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
       </button>
     </div>
   </div>
