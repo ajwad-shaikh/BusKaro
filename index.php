@@ -42,9 +42,7 @@ require('dbconn.php');
 		<div class="login">
 			<h2>Sign In</h2>
 			<form action="index.php" method="post">
-				<input type="number" Name="UserID" placeholder="User ID" required="">
-				<input type="password" Name="Password" placeholder="Password" required="">
-				<p> Sign In As </p>
+			<p> Sign In As </p>
 				<select name="Type" id="type">
 					<option value="Student">Student</option>
 					<option value="Faculty">Faculty</option>
@@ -53,6 +51,8 @@ require('dbconn.php');
 				</select>
 				<br>
 				<br>
+				<input type="number" Name="UserID" placeholder="User ID" required="">
+				<input type="password" Name="Password" placeholder="Password" required="">
 			
 			
 			<div class="send-button">
@@ -156,13 +156,8 @@ $x=$row['Pwd'];
 $y=$row['Type'];
 if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
   {//echo "Login Successful";
-   $_SESSION['UserID']=$u;
-   
-
-  if($y=='Admin')
-   header('location:admin/index.php');
-  else
-  	header('location:student/index.php');
+   	$_SESSION['UserID']=$u;
+  	header('location:passenger/dashboard.php');
         
   }
 else 
