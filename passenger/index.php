@@ -136,7 +136,7 @@ require('dbconn.php');
             </div>
             <!--/.container-->
         </div>
-<div class="footer">
+        <div class="footer">
             <div class="container">
                 <b class="copyright">&copy; 2018 BusKaro </b>All rights reserved.
             </div>

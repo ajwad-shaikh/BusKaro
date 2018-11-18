@@ -3,5 +3,4 @@
 <?php require 'header.php'?>
 <body>
 	<?php require 'navbar.php' ?>
-	
 </body>
