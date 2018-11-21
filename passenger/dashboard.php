@@ -139,7 +139,7 @@
       </button>
     </div>
     <div class="col-sm-3"> 
-      <h3>Anouncements</h3><br>
+      <h3>Announcements</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="#"><span class="glyphicon glyphicon-bullhorn"></span></a>
       </button>
