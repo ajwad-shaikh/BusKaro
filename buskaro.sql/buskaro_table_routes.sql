@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS `routes` (
   KEY `Src` (`Src`),
   KEY `Dst` (`Dst`),
   KEY `d_time` (`DTime`),
-  KEY `cap` (`Capacity`)
+  KEY `cap` (`Capacity`),
+  KEY `STime_index` (`STime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'header.php'?>
+<?php 
+require 'header.php'; ?>
 <body>
 <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -42,7 +43,7 @@
     font-size: 150px;
     }
   </style>
-<?php require 'navbar.php' ?>
+<?php require 'navbar.php';require 'seatPopulate.php'; ?>
 
 <!--<div class="jumbotron">
   <div class="container text-center">
