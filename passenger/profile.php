@@ -10,7 +10,7 @@ require('dbconn.php');
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LMS</title>
+        <title>BusKaro</title>
         <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link type="text/css" href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link type="text/css" href="css/theme.css" rel="stylesheet">
@@ -86,8 +86,8 @@ require('dbconn.php');
                                 $email=$row['EmailId'];
                                 $mobno=$row['MobNo'];
                                 $pswd=$row['Password'];
-                                ?>    
-                    			
+                                ?>
+
                                 <form class="form-horizontal row-fluid" action="edit_student_details.php?id=<?php echo $rollno ?>" method="post">
 
                                     <div class="control-group">
@@ -130,20 +130,20 @@ require('dbconn.php');
                                         <div class="controls">
                                             <input type="password" id="Password" name="Password"  value= "<?php echo $pswd?>" class="span8" required>
                                         </div>
-                                    </div>   
+                                    </div>
 
                                     <div class="control-group">
                                             <div class="controls">
                                                 <button type="submit" name="submit"class="btn-primary"><center>Update Details</center></button>
                                             </div>
-                                        </div>                                                                     
+                                        </div>
 
                                 </form>
-                    		           
+
                         </div>
-                        </div> 	
+                        </div>
                     </div>
-                    
+
                     <!--/.span9-->
                 </div>
             </div>
@@ -154,7 +154,7 @@ require('dbconn.php');
                 <b class="copyright">&copy; 2018 Library Management System </b>All rights reserved.
             </div>
         </div>
-        
+
         <!--/.wrapper-->
         <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
         <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
@@ -188,7 +188,7 @@ echo "<script type='text/javascript'>alert('Error')</script>";
 }
 }
 ?>
-      
+
     </body>
 
 </html>
