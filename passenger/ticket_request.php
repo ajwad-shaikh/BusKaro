@@ -10,7 +10,7 @@
     require 'db_init.php';
     $userID = $_SESSION['UserID'];
     $bid = $_GET['bid'];
-    $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE Passenger=".$userID."AND (BusDate = CURDATE() OR BusDate = CURDATE() + INTERVAL 1 DAY);";
+    $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE Passenger=".$userID." AND (BusDate = CURDATE() OR BusDate = CURDATE() + INTERVAL 1 DAY);";
     $result = $conn->query($sql_instance);
     if($result->num_rows < 2)
     {
@@ -21,7 +21,7 @@
       $sql_start="SET AUTOCOMMIT = OFF; START TRANSACTION;";
       $result = $conn->query($sql_start);
       $sql_entry="UPDATE buskaro.seat_matrix SET Passenger = ".$userID." WHERE BID=".$bid." AND SeatNo=".$row['SeatNo'].";";
-      $sql_seat="UPDATE buskaro.bus_instances SET Capacity = Capacity - 1 WHERE BID=".$bid.";";
+      $sql_seat="UPDATE buskaro.bus_instances SET Seats_Left = Seats_Left - 1 WHERE BID=".$bid.";";
       if(($conn->query($sql_entry) == TRUE)&&($conn->query($sql_seat) == TRUE))
       {
         $sql_commit = "COMMIT;";
