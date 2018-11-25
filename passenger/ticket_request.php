@@ -12,7 +12,7 @@
     $bid = $_GET['bid'];
     $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE Passenger=".$userID." AND (BusDate = CURDATE() OR BusDate = CURDATE() + INTERVAL 1 DAY);";
     $result = $conn->query($sql_instance);
-    if($result->num_rows < 2)
+    if($result->num_rows < 4)
     {
       $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE BID=".$bid." AND Passenger IS NULL;";
       $result = $conn->query($sql_instance);
@@ -27,6 +27,8 @@
         $sql_commit = "COMMIT;";
         $result = $conn->query($sql_commit);
         echo 'Ticket Booked Successfully!';
+        #echo '<img src="qr_gen.php?id=Ticket_Booked_Successfully" />';
+        echo '<img src="qr_gen.php?id=SeatNo-'.$row['SeatNo'].'" />';
       }
       else
       {
@@ -36,6 +38,9 @@
         echo 'Sorry, there was a problem :(';
       }
     }
-    else echo 'Sorry, you have exceeded the daily ticket limit!';
+    else
+    {
+      echo 'Sorry, you have exceeded the daily ticket limit!';
+    }
   ?>
 </body>
