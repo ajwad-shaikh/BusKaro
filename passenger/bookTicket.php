@@ -51,7 +51,7 @@ require 'header.php';
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book!</a></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book Now</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
@@ -97,7 +97,7 @@ require 'header.php';
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book!</a></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book Now</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
