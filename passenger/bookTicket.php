@@ -5,6 +5,13 @@ require 'header.php';
 ?>
 <body>
 	<?php require 'navbar.php' ;	?>
+	<div id="mySidenav" class="sidenav">
+	<a href="dashboard.php" id="dashboard">Go Home</a>
+  <a href="view_tickets.php" id="view">View Tickets</a>
+  <a href="modifyTicket.php" id="modify">Modify Tickets</a>
+  <a href="cancelTicket.php" id="cancel">Cancel Tickets</a>
+  <a href="index.php" id="profile">Your Profile</a>
+	</div>
 	<div class="container">
 		<h2>Available Buses</h2>
 		<p>Kindly Select The Bus You Wish To Book Tickets For:</p>
@@ -51,7 +58,7 @@ require 'header.php';
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book Now</a></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-success" role="button">Book Now</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
@@ -97,7 +104,7 @@ require 'header.php';
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book Now</a></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-success" role="button">Book Now</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
