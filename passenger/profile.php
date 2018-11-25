@@ -179,12 +179,12 @@ $sql1="update LMS.user set Name='$name', Category='$category', EmailId='$email',
 
 
 if($conn->query($sql1) === TRUE){
-echo "<script type='text/javascript'>alert('Success')</script>";
-header( "Refresh:0.01; url=index.php", true, 303);
+    echo "<script type='text/javascript'>alert('Success')</script>";
+    header( "Refresh:0.01; url=index.php", true, 303);
 }
 else
 {//echo $conn->error;
-echo "<script type='text/javascript'>alert('Error')</script>";
+    echo "<script type='text/javascript'>alert('Error')</script>";
 }
 }
 ?>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
+<?php
 require 'header.php'; ?>
 <body>
 <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
-    
+
     /* Add a gray background color and some padding to the footer */
     footer {
       background-color: #f2f2f2;
@@ -42,12 +42,15 @@ require 'header.php'; ?>
     .glyphicon.glyphicon-bullhorn {
     font-size: 150px;
     }
+    .glyphicon.glyphicon-qrcode {
+    font-size: 150px;
+    }
   </style>
 <?php require 'navbar.php';require 'seatPopulate.php'; ?>
 
 <!--<div class="jumbotron">
   <div class="container text-center">
-    <h1>Book Bus Tickets On The Go...</h1>      
+    <h1>Book Bus Tickets On The Go...</h1>
     <p>Eat Lunch In Peace, Ditch the Queue!</p>
   </div>
 </div> -->
@@ -101,21 +104,28 @@ require 'header.php'; ?>
 
   <h2><i class="fas fa-ticket-alt"></i>&nbsp;Ticket Window&nbsp;<i class="fas fa-ticket-alt"></i></h2><br>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h3>Book Ticket</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="bookTicket.php"><span class="glyphicon glyphicon-send"></span></a>
       </button>
-      
+
     </div>
-    <div class="col-sm-4"> 
+    <div class="col-sm-3">
+      <h3>View Ticket</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <!--<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">-->
+        <a href="view_tickets.php"><span class="glyphicon glyphicon-qrcode"></span></a>
+      </button>
+    </div>
+    <div class="col-sm-3">
       <h3>Modify Ticket</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <!--<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">-->
         <a href="modifyTicket.php"><span class="glyphicon glyphicon-pencil"></span></a>
       </button>
     </div>
-    <div class="col-sm-4"> 
+    <div class="col-sm-3">
       <h3>Cancel Ticket</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="cancelTicket.php"><span class="glyphicon glyphicon-remove-circle"></span></a>
@@ -124,7 +134,7 @@ require 'header.php'; ?>
   </div>
 </div><br><br>
 
-<div class="container-fluid bg-3 text-center"> 
+<div class="container-fluid bg-3 text-center">
   <h2><i class="fas fa-child"></i>&nbsp;Enquiries and Everything Else&nbsp;<i class="fas fa-child"></i></h2><br>
   <div class="row">
     <div class="col-sm-3">
@@ -133,19 +143,19 @@ require 'header.php'; ?>
         <a href="schedule.php"><span class="glyphicon glyphicon-list-alt"></span></a>
       </button>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-3">
       <h3>Your BusKaro Profile</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="index.php"><span class="glyphicon glyphicon-user"></span></a>
       </button>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-3">
       <h3>Announcements</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="#"><span class="glyphicon glyphicon-bullhorn"></span></a>
       </button>
     </div>
-    <div class="col-sm-3"> 
+    <div class="col-sm-3">
       <h3>Terms & Conditions</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="#"><span class="glyphicon glyphicon-edit"></span></a>

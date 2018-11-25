@@ -11,28 +11,28 @@ require 'header.php';
 		<ul class="nav nav-tabs">
 		  	<li class="active"><a data-toggle="tab" href="#today">Today</a></li>
 	  		<li><a data-toggle="tab" href="#tomorrow">Tomorrow</a></li>
-		</ul> 
+		</ul>
 		<div class="tab-content">
 			<div id="today" class="tab-pane fade in active">
-			<h4>Buses Leaving Today...</h4>         
+			<h4>Buses Leaving Today...</h4>
 	    <?php
 	    	createTable();
 			function createTable() {
-				require 'db_init.php';
-				$userID = $_SESSION['UserID'];
+					require 'db_init.php';
+					$userID = $_SESSION['UserID'];
 			    $sql="SELECT Type FROM buskaro.passenger WHERE ID='$userID';";
-		        $result = $conn->query($sql);
-		        $row=$result->fetch_assoc();
-		        $userType=$row['Type'];
-		        $sql_instance="SELECT * FROM buskaro.bus_instances JOIN buskaro.routes ON buskaro.routes.RID=buskaro.bus_instances.RID WHERE BusDate = CURDATE() ORDER BY DepTime ASC;";
-		        $result = $conn->query($sql_instance);
+	        $result = $conn->query($sql);
+	        $row=$result->fetch_assoc();
+	        $userType=$row['Type'];
+	        $sql_instance="SELECT * FROM buskaro.bus_instances JOIN buskaro.routes ON buskaro.routes.RID=buskaro.bus_instances.RID WHERE BusDate = CURDATE() ORDER BY DepTime ASC;";
+	        $result = $conn->query($sql_instance);
 		    	if ($result->num_rows > 0) {
 		    		echo ' <table class="table table-hover">
 							    <thead>
 							      <tr>
 							        <th>Bus ID</th>
 							        <th>Route ID</th>
-							        <th>Capacity</th>
+							        <th>Seats Left</th>
 							        <th>Departure Time</th>
 							        <th>Source</th>
 							        <th>Destination</th>
@@ -46,17 +46,17 @@ require 'header.php';
 				        echo '<tr>
 						        <td>'.$row["BID"].'</td>
 						        <td>'.$row["RID"].'</td>
-						        <td>'.$row["Capacity"].'</td>
+						        <td>'.$row["Seats_Left"].'</td>
 						        <td>'.$row["DepTime"].'</td>
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-						        <td><button type="button" class="btn btn-primary">Book!</button></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book!</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
 				}
-			}   
+			}
 	    ?>
 	    </div>
 	    <div id="tomorrow" class="tab-pane fade">
@@ -78,7 +78,7 @@ require 'header.php';
 							      <tr>
 							      	<th>Bus ID</th>
 							        <th>Route ID</th>
-							        <th>Capacity</th>
+							        <th>Seats Left</th>
 							        <th>Departure Time</th>
 							        <th>Source</th>
 							        <th>Destination</th>
@@ -92,17 +92,17 @@ require 'header.php';
 				        echo '<tr>
 				        		<td>'.$row["BID"].'</td>
 						        <td>'.$row["RID"].'</td>
-						        <td>'.$row["Capacity"].'</td>
+						        <td>'.$row["Seats_Left"].'</td>
 						        <td>'.$row["DepTime"].'</td>
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-						        <td><button type="button" class="btn btn-primary">Book!</button></td>
+										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-primary" role="button">Book!</a></td>
 						      </tr>';
 				    }
 				    echo '</tbody> </table>';
 				}
-			}   
+			}
 	    ?>
     	</div>
 	</div>
