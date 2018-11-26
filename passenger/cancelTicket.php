@@ -5,7 +5,13 @@
     require 'header.php';
   ?>
 <body>
-	<?php require 'navbar.php'; ?>
+	<?php require 'navbar.php';
+	if(isset($_GET['alert']))
+	{
+		echo '<div class = container><div class="alert alert-success">
+		  <strong>Yay! Your ticket is cancelled!...</strong> Remember, you can always BusKaro :)
+		</div></div>';
+	}?>
 	<div id="mySidenav" class="sidenav">
 	<a href="dashboard.php" id="dashboard">Go Home<span class="glyphicon glyphicon-home"></span></a>
 	<a href="bookTicket.php" id="cancel">Book Tickets<span class="glyphicon glyphicon-send"></span></a>

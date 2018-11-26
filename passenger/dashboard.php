@@ -146,19 +146,19 @@ require 'header.php';
     <div class="col-sm-3">
       <h3>Your BusKaro Profile</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
-        <a href="index.php"><span class="glyphicon glyphicon-user"></span></a>
+        <a href="profile.php"><span class="glyphicon glyphicon-user"></span></a>
       </button>
     </div>
     <div class="col-sm-3">
       <h3>Announcements</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
-        <a href="#"><span class="glyphicon glyphicon-bullhorn"></span></a>
+        <a href="announcements.php"><span class="glyphicon glyphicon-bullhorn"></span></a>
       </button>
     </div>
     <div class="col-sm-3">
       <h3>Terms & Conditions</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
-        <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+        <a href="../tandc.php"><span class="glyphicon glyphicon-edit"></span></a>
       </button>
     </div>
   </div>

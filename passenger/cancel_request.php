@@ -19,7 +19,8 @@
     {
       $sql_commit = "COMMIT;";
       $result = $conn->query($sql_commit);
-      echo 'Ticket Cancelled Successfully!';
+      #echo 'Ticket Cancelled Successfully!';
+      header('Location: cancelTicket.php?alert=1');
     }
     else
     {

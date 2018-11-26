@@ -129,7 +129,7 @@ require('dbconn.php');
 			    <input type="submit" name="signup" value="Sign Up">
 			    </form>
 			</div>
-			<p>By creating an account, you agree to our <a class="underline" href="terms.html">Terms</a></p>
+			<p>By creating an account, you agree to our <a class="underline" href="tandc.php">Terms</a></p>
 			<div class="clear"></div>
 		</div>
 
