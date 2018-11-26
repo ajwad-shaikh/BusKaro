@@ -34,7 +34,7 @@ require('dbconn.php');
 
 	<h1>BusKaro</h1>
 	<h3>Book Bus Tickets On The Go</h3>
-	
+
 	<br>
 
 	<div class="container">
@@ -53,14 +53,14 @@ require('dbconn.php');
 				<br>
 				<input type="number" Name="UserID" placeholder="User ID" required="">
 				<input type="password" Name="Password" placeholder="Password" required="">
-			
-			
+
+
 			<div class="send-button">
 				<!--<form>-->
 					<input type="submit" name="signin"; value="Sign In">
 				</form>
 			</div>
-			
+
 			<div class="clear"></div>
 		</div>
 
@@ -108,9 +108,9 @@ require('dbconn.php');
 					<option value="NS">NS</option>
 				</select>
 				</div>
-				
+
 				<br>
-				
+
 				<p> Blood Group </p>
 				<select name="BloodG" id="BloodG">
 					<option value="A+">A+</option>
@@ -122,9 +122,9 @@ require('dbconn.php');
 					<option value="O+">O+</option>
 					<option value="O-">O-</option>
 				</select>
-				
+
 				<br><br>
-				
+
 			<div class="send-button">
 			    <input type="submit" name="signup" value="Sign Up">
 			    </form>
@@ -139,7 +139,7 @@ require('dbconn.php');
 
 	<div class="footer w3layouts agileits">
 		<p> &copy; 2018 BusKaro. All Rights Reserved </a></p>
-		<p><a class="underline" href="about.html">About the Project</a></p>
+		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
 
 <?php
@@ -157,13 +157,13 @@ $y=$row['Type'];
 if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
   {//echo "Login Successful";
    	$_SESSION['UserID']=$u;
+		$_SESSION['CheckID']=md5($u);
   	header('location:passenger/dashboard.php');
-        
   }
-else 
+else
  { echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
 }
-   
+
 
 }
 
@@ -176,13 +176,13 @@ if(isset($_POST['signup']))
 	$dept=$_POST['Dept'];
 	$bloodG=$_POST['BloodG'];
 	$type=$_POST['Type'];
-	
+
 	$conn->query('SET autocommit = OFF;');
-	
+
 	$sql0 = "START TRANSACTION;";
 	$sql1="INSERT INTO buskaro.passenger (ID,Type,Pwd) VALUES ('$userID','$type','$password');";
 	if($type=='Student')
-	{	
+	{
 		$sql2="INSERT INTO buskaro.student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
 	}
 	else if($type=='Faculty')

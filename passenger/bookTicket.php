@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'dbconn.php';
+<?php
+require 'dbconn.php';
 require 'header.php';
 ?>
 <body>
-	<?php require 'navbar.php' ;	?>
+	<?php require 'navbar.php' ;
+	if(!$_SESSION['UserID'] )
+		header('location: logout.php') ;
+	elseif(!((md5($_SESSION['UserID']))==$_SESSION['CheckID'])){
+		header('location: logout.php') ;
+	}
+	?>
 	<div id="mySidenav" class="sidenav">
 	<a href="dashboard.php" id="dashboard">Go Home<span class="glyphicon glyphicon-home"></span></a>
   <a href="view_tickets.php" id="view">View Tickets<span class="glyphicon glyphicon-qrcode"></span></a>
-  <a href="modifyTicket.php" id="modify">Modify Tickets<span class="glyphicon glyphicon-pencil"></span></a>
   <a href="cancelTicket.php" id="cancel">Cancel Tickets<span class="glyphicon glyphicon-remove-circle"></span></a>
   <a href="index.php" id="profile">Your Profile<span class="glyphicon glyphicon-user"></span></a>
 	</div>
@@ -57,9 +63,17 @@ require 'header.php';
 						        <td>'.$row["DepTime"].'</td>
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
-						        <td>'.$row["DTime"].'</td>
-										<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-success" role="button">Book Now</a></td>
-						      </tr>';
+						        <td>'.$row["DTime"].'</td>';
+									if($row['Seats_Left']>15){
+										echo '<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-success" role="button">Book Now</a></td>
+						      </tr>';}
+									elseif($row['Seats_Left']>0){
+										echo '<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-warning" role="button">Book Now</a></td>
+						      </tr>';}
+									else{
+										echo '<td><a href="ticket_request.php?bid='.$row["BID"].'" class="btn btn-danger disabled" role="button">Sold Out!</a></td>
+						      </tr>';}
+
 				    }
 				    echo '</tbody> </table>';
 				}
@@ -113,5 +127,5 @@ require 'header.php';
 	    ?>
     	</div>
 	</div>
-	<?php require 'footer.php' ?>
+	<?php require 'footer.php'; ?>
 </body>

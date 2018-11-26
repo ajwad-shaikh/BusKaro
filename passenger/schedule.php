@@ -13,19 +13,16 @@
   <a href="index.php" id="profile">Your Profile<span class="glyphicon glyphicon-user"></span></a>
 </div>
   <div class="container">
-    <h2>Booked Ticket history</h2>
+    <h2>Schedule For Buses</h2>
     <table class="table table-hover">
           <thead>
             <tr>
-              <th>Bus ID</th>
               <th>Route ID</th>
-              <th>Journey Date</th>
               <th>Departure Time</th>
               <th>Source</th>
               <th>Destination</th>
               <th>Arrival Time</th>
-              <th>Seat Number</th>
-              <th>Digital Ticket</th>
+              <th>Capacity</th>
             </tr>
           </thead>
           <tbody>
@@ -36,19 +33,16 @@
             $result = $conn->query($sql);
             $row=$result->fetch_assoc();
             $userType=$row['Type'];
-            $sql1 = "SELECT * FROM buskaro.seat_matrix JOIN buskaro.routes ON buskaro.seat_matrix.RID = buskaro.routes.RID WHERE Passenger = '$userID' ORDER BY BusDate DESC;";
+            $sql1 = "SELECT * FROM buskaro.routes ORDER BY STime ASC;";
             $result1 = $conn->query($sql1);
             while($row = $result1->fetch_assoc()) {
 				        echo '<tr>
-						        <td>'.$row["BID"].'</td>
 						        <td>'.$row["RID"].'</td>
-						        <td>'.$row["BusDate"].'</td>
 						        <td>'.$row["STime"].'</td>
 						        <td>'.$row["Src"].'</td>
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
-										<td>'.$row["SeatNo"].'</td>
-                    <td><a href="ticket.php?seat='.$row['SeatNo'].'&bid='.$row['BID'].'" class="btn btn-info" role="button">View</a></td>
+										<td>'.$row["Capacity"].'</td>
 						      </tr>';
 				    }
           ?>

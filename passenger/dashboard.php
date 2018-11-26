@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-require 'header.php'; ?>
+require 'header.php';
+?>
 <body>
 <style>
     /* Remove the navbar's default margin-bottom and rounded borders */
@@ -20,7 +21,7 @@ require 'header.php'; ?>
     font-size: 150px;
     }
 
-    .glyphicon.glyphicon-pencil {
+    .glyphicon.glyphicon-bookmark {
     font-size: 150px;
     }
 
@@ -119,16 +120,15 @@ require 'header.php'; ?>
       </button>
     </div>
     <div class="col-sm-3">
-      <h3>Modify Ticket</h3><br>
-      <button type = "button" class = "btn btn-link btn-block">
-        <!--<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">-->
-        <a href="modifyTicket.php"><span class="glyphicon glyphicon-pencil"></span></a>
-      </button>
-    </div>
-    <div class="col-sm-3">
       <h3>Cancel Ticket</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
         <a href="cancelTicket.php"><span class="glyphicon glyphicon-remove-circle"></span></a>
+      </button>
+    </div>
+    <div class="col-sm-3">
+      <h3>Weekly Bus Schedule</h3><br>
+      <button type = "button" class = "btn btn-link btn-block">
+        <a href="schedule.php"><span class="glyphicon glyphicon-list-alt"></span></a>
       </button>
     </div>
   </div>
@@ -138,9 +138,9 @@ require 'header.php'; ?>
   <h2><i class="fas fa-child"></i>&nbsp;Enquiries and Everything Else&nbsp;<i class="fas fa-child"></i></h2><br>
   <div class="row">
     <div class="col-sm-3">
-      <h3>Weekly Bus Schedule</h3><br>
+      <h3>About BusKaro</h3><br>
       <button type = "button" class = "btn btn-link btn-block">
-        <a href="schedule.php"><span class="glyphicon glyphicon-list-alt"></span></a>
+        <a href="../aboutus.php"><span class="glyphicon glyphicon-bookmark"></span></a>
       </button>
     </div>
     <div class="col-sm-3">
@@ -164,7 +164,7 @@ require 'header.php'; ?>
   </div>
 </div><br><br>
 
-<?php require 'footer.php' ?>
+<?php require 'footer.php';?>
 
 </body>
 </html>

@@ -16,27 +16,21 @@
 }
 
 #dashboard {
-    top: 100px;
+    top: 160px;
     background-color: #FFDF00;
 }
-
 /* The about link: 20px from the top with a green background */
 #view {
-    top: 220px;
+    top: 280px;
     background-color: #4CAF50;
 }
 
-#modify {
-    top: 340px;
-    background-color: #2196F3; /* Blue */
-}
-
 #cancel {
-    top: 460px;
+    top: 400px;
     background-color: #f44336; /* Red */
 }
 
 #profile {
-    top: 580px;
-    background-color: #555 /* Light Black */
+    top: 520px;
+    background-color: #2196F3; /* Light Black */
 }
