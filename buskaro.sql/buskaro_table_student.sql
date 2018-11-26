@@ -22,4 +22,5 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`RollNo`, `SName`, `Batch`, `Branch`, `BloodG`) VALUES
+(2017324, 'Kaushal Sharma', 2018, 'CSE', 'A+'),
 (2017333, 'Ajwad Shaikh', 2017, 'CSE', 'B+');
