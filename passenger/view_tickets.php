@@ -26,6 +26,7 @@
               <th>Destination</th>
               <th>Arrival Time</th>
               <th>Seat Number</th>
+              <th>Digital Ticket</th>
             </tr>
           </thead>
           <tbody>
@@ -48,6 +49,7 @@
 						        <td>'.$row["Dst"].'</td>
 						        <td>'.$row["DTime"].'</td>
 										<td>'.$row["SeatNo"].'</td>
+                    <td><a href="ticket.php?seat='.$row['SeatNo'].'&bid='.$row['BID'].'" class="btn btn-info" role="button">View</a></td>
 						      </tr>';
 				    }
           ?>

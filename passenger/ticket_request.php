@@ -26,9 +26,8 @@
       {
         $sql_commit = "COMMIT;";
         $result = $conn->query($sql_commit);
-        echo 'Ticket Booked Successfully!';
-        #echo '<img src="qr_gen.php?id=Ticket_Booked_Successfully" />';
-        echo '<img src="qr_gen.php?id=SeatNo-'.$row['SeatNo'].'" />';
+        $redurl = "ticket.php?seat=".$row['SeatNo']."&bid=".$row['BID'];
+        redirect($redurl);
       }
       else
       {
@@ -36,10 +35,23 @@
         $sql_rollback = "ROLLBACK;";
         $result = $conn->query($sql_rollback);
         echo 'Sorry, there was a problem :(';
+        Fail();
       }
     }
     else
     {
+      Limit();
+    }
+    function redirect($url) {
+        ob_start();
+        header('Location: '.$url);
+        ob_end_flush();
+        die();
+    }
+    function Fail() {
+      echo 'Sorry, there was a problem :(';
+    }
+    function Limit() {
       echo 'Sorry, you have exceeded the daily ticket limit!';
     }
   ?>
