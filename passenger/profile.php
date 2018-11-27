@@ -37,7 +37,24 @@ require 'header.php';
 				</div><br><br>';
 
   }
+  elseif($userType=='Faculty'){
+	$sql_instance="SELECT * FROM buskaro.student WHERE FID=".$userID.";";
+	$result = $conn->query($sql_instance);
+	$row = $result->fetch_assoc();
+	echo '<center><div class="container-fluid">
+					<div class="card bg-info pl-2" style="width:25%">
+						<br><br>
+					    <div class="card-header"><h3>Your BusKaro Profile</h3></div><br><br>
+					    <h4 class="card-body text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Your Name&emsp;-&emsp;'.$row['FName'].'</h4>
+							<h4 class="card-body text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Roll No&emsp;-&emsp;'.$row['FID'].' </h4>
+							<h4 class="card-body text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Branch&emsp;-&emsp;'.$row['Department'].'</h4>
+							<h4 class="card-body text-justify">&nbsp;&nbsp;&nbsp;&nbsp;Blood Group&emsp;-&emsp;'.$row['BloodG'].'</h4>
+							<br><br>
+					  </div>
+					</div>
+				</div><br><br>';
 
+  }
 	?>
 
 	<?php require 'footer.php' ?>
