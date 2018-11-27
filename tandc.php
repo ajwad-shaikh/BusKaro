@@ -141,7 +141,7 @@
     <li>In the event that You use the Website through a registered account, You should take all necessary steps to ensure that the password is kept confidential and secure and should inform BusKaro immediately if You have any reason to believe that Your password has been compromised, or if the password is being, or is likely to be, used in an unauthorized manner. BusKaro shall not be liable for any losses You may incur owing to any compromised login credentials of Your BusKaro account. Please ensure that the details You provide BusKaro are correct, complete and up to date and inform BusKaro immediately of any changes to the information that You provide at the time of registering Your account with BusKaro.</li>
     <li>You acknowledge that You only have a limited right to use the Website and that You have no right to modify any part of the Website or reproduce, copy, distribute, sell, resell or access the Facility for any commercial purposes.</li>
     <li>For the purpose of booking bus tickets through the Website, we warrant that we shall be responsible for Issuing a valid ticket (a ticket that will be accepted by the bus operator)</li>
-    <li>You Can Book A Maximum Of 4 Tickets/Day.</li>
+    <li>You Can Book A Maximum Of 6 tickets over a span of two working days.</li>
     <li>We DO NOT take any liability for the following:<br><br>
         <ul>
             <li>The bus operator's bus not departing from/reaching the pick-up point or destination on time</li>

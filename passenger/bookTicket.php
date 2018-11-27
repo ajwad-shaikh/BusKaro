@@ -11,7 +11,12 @@ require 'header.php';
 	elseif(!((md5($_SESSION['UserID']))==$_SESSION['CheckID'])){
 		header('location: logout.php') ;
 	}
-	?>
+	if(isset($_GET['alert']))
+	{
+		echo '<div class = container><div class="alert alert-danger">
+		  <strong>You\'re off limits! Ab Bus bhi Karo ;) </strong> Remember, you can only book six tickets over a span of two days :)
+		</div></div>';
+	}?>
 	<div id="mySidenav" class="sidenav">
 	<a href="dashboard.php" id="dashboard">Go Home<span class="glyphicon glyphicon-home"></span></a>
   <a href="view_tickets.php" id="view">View Tickets<span class="glyphicon glyphicon-qrcode"></span></a>

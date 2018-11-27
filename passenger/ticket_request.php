@@ -12,7 +12,7 @@
     $bid = $_GET['bid'];
     $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE Passenger=".$userID." AND (BusDate = CURDATE() OR BusDate = CURDATE() + INTERVAL 1 DAY);";
     $result = $conn->query($sql_instance);
-    if($result->num_rows < 4)
+    if($result->num_rows < 6)
     {
       $sql_instance="SELECT * FROM buskaro.seat_matrix WHERE BID=".$bid." AND Passenger IS NULL;";
       $result = $conn->query($sql_instance);
@@ -40,6 +40,8 @@
     }
     else
     {
+      $redurl="bookTicket.php?alert=0";
+      redirect($redurl);
       Limit();
     }
     function redirect($url) {

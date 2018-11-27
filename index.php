@@ -145,7 +145,7 @@ require('dbconn.php');
 <?php
 if(isset($_POST['signin']))
 {$u=$_POST['UserID'];
- $p=$_POST['Password'];
+ $p=md5($_POST['Password']);
  $c=$_POST['Type'];
 
  $sql="SELECT * FROM buskaro.passenger WHERE ID='$u' AND Type='$c'";
@@ -170,7 +170,7 @@ else
 if(isset($_POST['signup']))
 {
 	$userID=$_POST['UserID'];
-	$password=$_POST['Password'];
+	$password=md5($_POST['Password']);
 	$name=$_POST['Name'];
 	$batch=$_POST['Batch'];
 	$dept=$_POST['Dept'];
