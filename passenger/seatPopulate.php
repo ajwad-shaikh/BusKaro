@@ -41,7 +41,7 @@
 	    }
 	}
 
-	$sql = "DELETE FROM buskaro.seat_matrix WHERE BusDate = CURDATE() - INTERVAL 2 DAY";
+	$sql = "DELETE FROM buskaro.seat_matrix WHERE BusDate < CURDATE() - INTERVAL 2 DAY";
 	$result = $conn->query($sql);
     echo $conn->error;
 

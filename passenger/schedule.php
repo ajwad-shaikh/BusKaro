@@ -10,7 +10,7 @@
   <a href="dashboard.php" id="dashboard">Go Home<span class="glyphicon glyphicon-home"></span></a>
 	<a href="cancelTicket.php" id="cancel">Cancel Tickets<span class="glyphicon glyphicon-remove-circle"></span></a>
   <a href="bookTicket.php" id="view">Book Tickets<span class="glyphicon glyphicon-send"></span></a>
-  <a href="index.php" id="profile">Your Profile<span class="glyphicon glyphicon-user"></span></a>
+  <a href="profile.php" id="profile">Your Profile<span class="glyphicon glyphicon-user"></span></a>
 </div>
   <div class="container">
     <h2>Schedule For Buses</h2>
