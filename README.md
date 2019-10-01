@@ -2,6 +2,12 @@
 
 #### Local Bus Booking App for Institutions and Societies
 
+![BusKaro Home Page](https://github.com/ajwad-shaikh/BusKaro/raw/master/images/dashboard.png "BusKaro Home Page")
+
+#### BusKaro Functionalities
+
+![BusKaro Home Page](https://github.com/ajwad-shaikh/BusKaro/raw/master/images/functions.png "BusKaro Functionalities")
+
 ## What is Buskaro?
 
 BusKaro is an online bus ticket booking platform for Local Institutions and Societies. As a pilot implementation, BusKaro is designed and optimized for use in PDPM IIITDM Jabalpur, Madhya Pradesh, India.
