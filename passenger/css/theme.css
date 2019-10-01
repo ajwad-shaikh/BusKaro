@@ -1740,3 +1740,8 @@ filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', end
 .card-body b {
 	color: rgb(0, 0 , 0);
 }
+
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+}
