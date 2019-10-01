@@ -138,7 +138,7 @@ require('dbconn.php');
 	</div>
 
 	<div class="footer w3layouts agileits">
-		<p> &copy; 2018 BusKaro. All Rights Reserved </a></p>
+        <p> <span class="copyleft">&copy;</span> 2018 BusKaro. </a></p>
 		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
 
