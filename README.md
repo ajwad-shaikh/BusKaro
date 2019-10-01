@@ -46,4 +46,4 @@ If you're ready to contribute code, see the [contribution guide](https://github.
 
 Created by [Ajwad Shaikh](https://github.com/ajwad-shaikh/), Kaushal Sharma and Arnav Deep as a semester-end project for Database Management Systems Course (CS201)
 
-© November 2018.
+_copyleft_ November 2018.
