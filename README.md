@@ -68,6 +68,5 @@ If you're ready to contribute code, see the [contribution guide](https://github.
 - Issues labelled **HacktoberFest** are designed to encourage first-time contributors.
 - Please read the [contribution guide](https://github.com/ajwad-shaikh/BusKaro/blob/master/CONTRIBUTING.md) thoroughly for more before sending in Pull Requests.
 
-Created by [Ajwad Shaikh](https://github.com/ajwad-shaikh/), Kaushal Sharma and Arnav Deep as a semester-end project for Database Management Systems Course (CS201)
-
+Created by [Ajwad Shaikh](https://github.com/ajwad-shaikh/).
 _copyleft_ November 2018.
