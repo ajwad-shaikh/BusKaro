@@ -321,6 +321,11 @@ input[type="text"], input[type="password"], input[type="number"], input[type="da
     color: #FFF;
 }
 
+.copyleft {
+    display:inline-block;
+    transform: rotate(180deg);
+}
+
 /*-- Index-Page-Styling --*/
 
 

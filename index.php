@@ -57,7 +57,7 @@ require('dbconn.php');
 
 			<div class="send-button">
 				<!--<form>-->
-					<input type="submit" name="signin"; value="Sign In">
+					<input type="submit" name="signin" value="Sign In">
 				</form>
 			</div>
 
@@ -97,7 +97,7 @@ require('dbconn.php');
 				<input type="text" Name="Name" placeholder="Name" required>
 				<input type="password" Name="Password" placeholder="Password" required>
 				<div id='batch'>
-				<input type="number" Name="Batch" placeholder="Batch">
+				    <input type="number" Name="Batch" placeholder="Batch">
 				</div>
 				<div id = 'dept'>
 				<p> Department </p>
@@ -125,20 +125,18 @@ require('dbconn.php');
 
 				<br><br>
 
-			<div class="send-button">
-			    <input type="submit" name="signup" value="Sign Up">
-			    </form>
-			</div>
+                <div class="send-button">
+                    <input type="submit" name="signup" value="Sign Up">
+                </div>
+            </form>
 			<p>By creating an account, you agree to our <a class="underline" href="tandc.php">Terms</a></p>
 			<div class="clear"></div>
 		</div>
 
 		<div class="clear"></div>
 
-	</div>
-
 	<div class="footer w3layouts agileits">
-		<p> &copy; 2018 BusKaro. All Rights Reserved </a></p>
+    	<p><span class="copyleft">&copy;</span> 2018 BusKaro. </a></p>
 		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
 
