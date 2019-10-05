@@ -45,7 +45,7 @@ require 'header.php';
 	        $sql_instance="SELECT * FROM buskaro.bus_instances JOIN buskaro.routes ON buskaro.routes.RID=buskaro.bus_instances.RID WHERE BusDate = CURDATE() ORDER BY DepTime ASC;";
 	        $result = $conn->query($sql_instance);
 		    	if ($result->num_rows > 0) {
-		    		echo ' <table class="table table-hover">
+		    		echo ' <table class="table table-hover"  style= "overflow-y:scroll; height:800px; display:block">
 							    <thead>
 							      <tr>
 							        <th>Bus ID</th>
@@ -99,7 +99,7 @@ require 'header.php';
 		        $sql_instance="SELECT * FROM buskaro.bus_instances JOIN buskaro.routes ON buskaro.routes.RID=buskaro.bus_instances.RID WHERE BusDate = CURDATE() + INTERVAL 1 DAY ORDER BY DepTime ASC;";
 		        $result = $conn->query($sql_instance);
 		    	if ($result->num_rows > 0) {
-		    		echo ' <table class="table table-hover">
+		    		echo ' <table class="table table-hover"  style= "overflow-y:scroll; height:800px; display:block">
 							    <thead>
 							      <tr>
 							      	<th>Bus ID</th>
