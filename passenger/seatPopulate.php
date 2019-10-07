@@ -1,5 +1,5 @@
 <?php
-	require 'db_init.php';
+	require_once '../Dao/connection.php';
 
 	$sql="DELETE FROM buskaro.bus_instances WHERE BusDate < CURDATE()";
 	$result = $conn->query($sql);

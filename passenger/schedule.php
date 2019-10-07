@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php
-    require 'dbconn.php';
-    require 'header.php';
+    require_once '../Dao/connection.php';
+    require_once 'header.php';
   ?>
 <body>
 	<?php require 'navbar.php';?>
@@ -27,8 +27,6 @@
           </thead>
           <tbody>
           <?php
-            require 'db_init.php';
-            $userID = $_SESSION['UserID'];
             $sql="SELECT Type FROM buskaro.passenger WHERE ID='$userID';";
             $result = $conn->query($sql);
             $row=$result->fetch_assoc();
@@ -49,5 +47,5 @@
           </tbody>
       </table>
     </div>
-    <?php require 'footer.php' ?>
+    <?php require_once 'footer.php' ?>
 </body>

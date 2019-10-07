@@ -1,3 +1,13 @@
+<?php 
+  session_start();
+  if(!$_SESSION['UserID']){
+    header('Location: ../');
+  }else{
+    $userID=$_SESSION['UserID'];
+  }
+  
+?>
+
 <head>
   <title>BusKaro</title>
   <meta charset="utf-8">
