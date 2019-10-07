@@ -82,7 +82,41 @@
 
     //Used to register new user 
     function registerUser(){
-        echo 'Test';
+        require_once("connection.php");
+        
+        // Stage 1: Preparation
+	    $query="CALL addUser(?,?,?,?,?,?,?)";
+    
+        $stmt=$conn->prepare($query);
+        if(!$stmt){
+            echo "Preparation failed: (" .$conn->errno .")" .$conn->error;
+        }
+
+        //Stage 2: Parameter Association (bind)
+        $userID= filterinput($conn,$_POST['UserID']);
+        $password=filterinput($conn,$_POST['Password']);
+        $name=filterinput($conn,$_POST['Name']);
+        $batch=filterinput($conn,$_POST['Batch']);
+        $dept=filterinput($conn,$_POST['Dept']);
+        $bloodG=filterinput($conn,$_POST['BloodG']);
+        $type=filterinput($conn,$_POST['Type']);
+        
+        $bind=$stmt->bind_param("ississs",$userID,$password,$name,$batch,$dept,$bloodG,$type);
+        if(!$bind){
+            echo "Connection parameters failed: (" . $stmt->errno . ")" . $stmt->error;
+        }
+        
+        // Stage 3: Execution
+        if($stmt->execute()){
+            echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+            header('Location: ../');
+        }else{
+            echo "Execution failed: (" . $stmt->errno . ")" . $stmt->error;
+            echo "<script type='text/javascript'>alert('User Exists ".$conn->error."')</script>";
+        }
+
+        $stmt->close();
+        $conn->close();
     }
 
 ?>

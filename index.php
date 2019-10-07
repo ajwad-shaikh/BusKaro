@@ -138,48 +138,6 @@ require_once('Dao/connection.php');
     	<p><span class="copyleft">&copy;</span> 2018 BusKaro. </a></p>
 		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
-
-<?php
-
-
-
-/*
-if(isset($_POST['signup']))
-{
-	$userID=$_POST['UserID'];
-	$password=md5($_POST['Password']);
-	$name=$_POST['Name'];
-	$batch=$_POST['Batch'];
-	$dept=$_POST['Dept'];
-	$bloodG=$_POST['BloodG'];
-	$type=$_POST['Type'];
-
-	$conn->query('SET autocommit = OFF;');
-
-	$sql0 = "START TRANSACTION;";
-	$sql1="INSERT INTO buskaro.passenger (ID,Type,Pwd) VALUES ('$userID','$type','$password');";
-	if($type=='Student')
-	{
-		$sql2="INSERT INTO buskaro.student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-	}
-	else if($type=='Faculty')
-		$sql2="INSERT INTO buskaro.faculty (FID, FName, Dept, BloodG) VALUES ('$userID','$name', '$dept', '$bloodG');";
-	else if($type=='Staff')
-		$sql2="INSERT INTO buskaro.staff (EID, EName, BloodG) VALUES ('$userID','$name','$bloodG');";
-	//else if($type=='Guest')
-	//	$sql2="INSERT INTO buskaro.guest (GID, GName, Batch, Branch, DoB, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-	if (($conn->query($sql0) === TRUE) && ($conn->query($sql1) === TRUE) && ($conn->query($sql2) === TRUE) ){
-		echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-		$conn->query('COMMIT;');
-	} else {
-		$conn->query('ROLLBACK;');
-		echo "Error: " . $sql . "<br>" . $conn->error;
-		echo "<script type='text/javascript'>alert('User Exists ".$conn->error."')</script>";
-	}
-}
-*/
-?>
-
 </body>
 <!-- //Body -->
 
