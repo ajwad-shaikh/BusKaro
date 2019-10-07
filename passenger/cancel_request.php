@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <?php
-      require 'dbconn.php';
-      require 'header.php';
+    require_once '../Dao/connection.php';
+    require_once 'header.php';
   ?>
 <body>
 	<?php
-    require 'navbar.php';
-    require 'db_init.php';
+    require_once 'navbar.php';
     $userID = $_SESSION['UserID'];
     $bid = $_GET['bid'];
     $seat = $_GET['seat'];

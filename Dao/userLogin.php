@@ -64,9 +64,9 @@
             $linha=$res->fetch_assoc();
             if($linha['Pwd']==$password){
                 session_start();
-                $_SESSION['UserID']=$user;
+                $_SESSION['UserID']=$linha['ID'];
                 $_SESSION['Type']=$linha['Type'];
-                $_SESSION['Password']=md5($password);
+                $_SESSION['Password']=md5($linha['Pwd']);
                 header('Location: ../passenger/dashboard.php');         
                 $t='true';
             }

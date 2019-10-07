@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php require 'dbconn.php';
-require 'header.php';
+<?php 
+	require_once '../Dao/connection.php';
+    require_once 'header.php';
 ?>
 <body>
 	<?php require 'navbar.php' ;	?>
@@ -44,6 +45,6 @@ require 'header.php';
 
 	?>
 
-	<?php require 'footer.php' ?>
+	<?php require_once 'footer.php' ?>
 
 </body>
