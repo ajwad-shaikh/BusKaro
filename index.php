@@ -1,8 +1,3 @@
-<?php
-require('dbconn.php');
-?>
-
-
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +26,9 @@ require('dbconn.php');
 
 <!-- Body -->
 <body>
-
+	<?php
+require 'dbconn.php';
+?>
 	<h1>BusKaro</h1>
 	<h3>Book Bus Tickets On The Go</h3>
 
@@ -141,62 +138,57 @@ require('dbconn.php');
 	</div>
 
 <?php
-if(isset($_POST['signin']))
-{$u=$_POST['UserID'];
- $p=md5($_POST['Password']);
- $c=$_POST['Type'];
+if (isset($_POST['signin'])) {
+    $u = $_POST['UserID'];
+    $p = $_POST['Password'];
+    $c = $_POST['Type'];
 
- $sql="SELECT * FROM buskaro.passenger WHERE ID='$u' AND Type='$c'";
+    $sql = "SELECT * FROM passenger WHERE id='$u' and types='$c'";
 
- $result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$x=$row['Pwd'];
-$y=$row['Type'];
-if(strcasecmp($x,$p)==0 && !empty($u) && !empty($p))
-  {//echo "Login Successful";
-   	$_SESSION['UserID']=$u;
-		$_SESSION['CheckID']=md5($u);
-  	header('location:passenger/dashboard.php');
-  }
-else
- { echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
-}
-
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    $x = $row['Pwd'];
+    $y = $row['Types'];
+    if (strcasecmp($x, $p) == 0 && !empty($u) && !empty($p)) { //echo "Login Successful";
+        $_SESSION['UserID'] = $u;
+        $_SESSION['CheckID'] = md5($u);
+        header('location:passenger/dashboard.php');
+    } else {echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
+    }
 
 }
 
-if(isset($_POST['signup']))
-{
-	$userID=$_POST['UserID'];
-	$password=md5($_POST['Password']);
-	$name=$_POST['Name'];
-	$batch=$_POST['Batch'];
-	$dept=$_POST['Dept'];
-	$bloodG=$_POST['BloodG'];
-	$type=$_POST['Type'];
+if (isset($_POST['signup'])) {
+    $userID = $_POST['UserID'];
+    $password = md5($_POST['Password']);
+    $name = $_POST['Name'];
+    $batch = $_POST['Batch'];
+    $dept = $_POST['Dept'];
+    $bloodG = $_POST['BloodG'];
+    $type = $_POST['Type'];
 
-	$conn->query('SET autocommit = OFF;');
+    $conn->query('SET autocommit = OFF;');
 
-	$sql0 = "START TRANSACTION;";
-	$sql1="INSERT INTO buskaro.passenger (ID,Type,Pwd) VALUES ('$userID','$type','$password');";
-	if($type=='Student')
-	{
-		$sql2="INSERT INTO buskaro.student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-	}
-	else if($type=='Faculty')
-		$sql2="INSERT INTO buskaro.faculty (FID, FName, Dept, BloodG) VALUES ('$userID','$name', '$dept', '$bloodG');";
-	else if($type=='Staff')
-		$sql2="INSERT INTO buskaro.staff (EID, EName, BloodG) VALUES ('$userID','$name','$bloodG');";
-	//else if($type=='Guest')
-	//	$sql2="INSERT INTO buskaro.guest (GID, GName, Batch, Branch, DoB, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-	if (($conn->query($sql0) === TRUE) && ($conn->query($sql1) === TRUE) && ($conn->query($sql2) === TRUE) ){
-		echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-		$conn->query('COMMIT;');
-	} else {
-		$conn->query('ROLLBACK;');
-		echo "Error: " . $sql . "<br>" . $conn->error;
-		echo "<script type='text/javascript'>alert('User Exists ".$conn->error."')</script>";
-	}
+    $sql0 = "START TRANSACTION;";
+    $sql1 = "INSERT INTO passenger (ID,Types,Pwd) VALUES ('$userID','$type','$password');";
+    if ($type == 'Student') {
+        $sql2 = "INSERT INTO student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
+    } else if ($type == 'Faculty') {
+        $sql2 = "INSERT INTO faculty (FID, FName, Dept, BloodG) VALUES ('$userID','$name', '$dept', '$bloodG');";
+    } else if ($type == 'Staff') {
+        $sql2 = "INSERT INTO staff (EID, EName, BloodG) VALUES ('$userID','$name','$bloodG');";
+    }
+
+    //else if($type=='Guest')
+    //    $sql2="INSERT INTO guest (GID, GName, Batch, Branch, DoB, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
+    if (($conn->query($sql0) === true) && ($conn->query($sql1) === true) && ($conn->query($sql2) === true)) {
+        echo "<script type='text/javascript'>alert('Registration Successful')</script>";
+        $conn->query('COMMIT;');
+    } else {
+        $conn->query('ROLLBACK;');
+        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "<script type='text/javascript'>alert('User Exists " . $conn->error . "')</script>";
+    }
 }
 
 ?>
