@@ -1,6 +1,11 @@
 <?php
-//require('dbconn.php');
-require_once('Dao/connection.php');
+	//require('dbconn.php');
+	require_once('Dao/connection.php');
+	/*session_start();
+	if(!$_SESSION['UserID']){
+		echo session_flash('errorMessage');
+	}*/
+	  
 ?>
 
 
@@ -54,7 +59,6 @@ require_once('Dao/connection.php');
 				<br>
 				<input type="number" Name="UserID" placeholder="User ID" required="">
 				<input type="password" Name="Password" placeholder="Password" required="">
-
 				<div class="send-button">
 					<!--<form>-->
 						<input type="submit" name="signin" value="Sign In">

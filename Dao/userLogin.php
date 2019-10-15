@@ -75,9 +75,10 @@
         if($t==false){
             echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
             header('Location: ../');
-        }  
+        }
+         
         $stmt->close();
-        $conexao->close();
+        $conn->close();
     }
 
     //Used to register new user 
