@@ -1,3 +1,4 @@
+
 <?php
 	//require('dbconn.php');
 	require_once('Dao/connection.php');
@@ -7,7 +8,6 @@
 	}*/
 	  
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,9 @@
 
 <!-- Body -->
 <body>
-
+	<?php
+require 'dbconn.php';
+?>
 	<h1>BusKaro</h1>
 	<h3>Book Bus Tickets On The Go</h3>
 
@@ -142,6 +144,7 @@
     	<p><span class="copyleft">&copy;</span> 2018 BusKaro. </a></p>
 		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
+
 </body>
 <!-- //Body -->
 
