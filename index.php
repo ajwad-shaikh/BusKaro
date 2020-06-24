@@ -1,3 +1,14 @@
+
+<?php
+	//require('dbconn.php');
+	require_once('Dao/connection.php');
+	/*session_start();
+	if(!$_SESSION['UserID']){
+		echo session_flash('errorMessage');
+	}*/
+	  
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -38,8 +49,8 @@ require 'dbconn.php';
 
 		<div class="login">
 			<h2>Sign In</h2>
-			<form action="index.php" method="post">
-			<p> Sign In As </p>
+			<form action="Dao/userLogin.php" method="post">
+				<p> Sign In As </p>
 				<select name="Type" id="type">
 					<option value="Student">Student</option>
 					<option value="Faculty">Faculty</option>
@@ -50,20 +61,17 @@ require 'dbconn.php';
 				<br>
 				<input type="number" Name="UserID" placeholder="User ID" required="">
 				<input type="password" Name="Password" placeholder="Password" required="">
-
-
-			<div class="send-button">
-				<!--<form>-->
-					<input type="submit" name="signin" value="Sign In">
-				</form>
-			</div>
-
+				<div class="send-button">
+					<!--<form>-->
+						<input type="submit" name="signin" value="Sign In">
+				</div>
+			</form>
 			<div class="clear"></div>
 		</div>
 
 		<div class="register">
 			<h2>Sign Up</h2>
-			<form action="index.php" method="post">
+			<form action="Dao/userLogin.php" method="post">
 				<p> Sign Up As </p>
 				<select name="Type" id="Type">
 					<option value="Student">Student</option>
@@ -136,62 +144,6 @@ require 'dbconn.php';
     	<p><span class="copyleft">&copy;</span> 2018 BusKaro. </a></p>
 		<p><a class="underline" href="aboutus.php">About the Project</a></p>
 	</div>
-
-<?php
-if (isset($_POST['signin'])) {
-    $u = $_POST['UserID'];
-    $p = $_POST['Password'];
-    $c = $_POST['Type'];
-
-    $sql = "SELECT * FROM passenger WHERE id='$u' and types='$c'";
-
-    $result = $conn->query($sql);
-    $row = $result->fetch_assoc();
-    $x = $row['Pwd'];
-    $y = $row['Types'];
-    if (strcasecmp($x, $p) == 0 && !empty($u) && !empty($p)) { //echo "Login Successful";
-        $_SESSION['UserID'] = $u;
-        $_SESSION['CheckID'] = md5($u);
-        header('location:passenger/dashboard.php');
-    } else {echo "<script type='text/javascript'>alert('Failed to Login! Incorrect RollNo or Password')</script>";
-    }
-
-}
-
-if (isset($_POST['signup'])) {
-    $userID = $_POST['UserID'];
-    $password = md5($_POST['Password']);
-    $name = $_POST['Name'];
-    $batch = $_POST['Batch'];
-    $dept = $_POST['Dept'];
-    $bloodG = $_POST['BloodG'];
-    $type = $_POST['Type'];
-
-    $conn->query('SET autocommit = OFF;');
-
-    $sql0 = "START TRANSACTION;";
-    $sql1 = "INSERT INTO passenger (ID,Types,Pwd) VALUES ('$userID','$type','$password');";
-    if ($type == 'Student') {
-        $sql2 = "INSERT INTO student (RollNo, SName, Batch, Branch, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-    } else if ($type == 'Faculty') {
-        $sql2 = "INSERT INTO faculty (FID, FName, Dept, BloodG) VALUES ('$userID','$name', '$dept', '$bloodG');";
-    } else if ($type == 'Staff') {
-        $sql2 = "INSERT INTO staff (EID, EName, BloodG) VALUES ('$userID','$name','$bloodG');";
-    }
-
-    //else if($type=='Guest')
-    //    $sql2="INSERT INTO guest (GID, GName, Batch, Branch, DoB, BloodG) VALUES ('$userID','$name', '$batch', '$dept', '$bloodG');";
-    if (($conn->query($sql0) === true) && ($conn->query($sql1) === true) && ($conn->query($sql2) === true)) {
-        echo "<script type='text/javascript'>alert('Registration Successful')</script>";
-        $conn->query('COMMIT;');
-    } else {
-        $conn->query('ROLLBACK;');
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        echo "<script type='text/javascript'>alert('User Exists " . $conn->error . "')</script>";
-    }
-}
-
-?>
 
 </body>
 <!-- //Body -->
