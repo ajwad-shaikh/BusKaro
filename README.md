@@ -62,9 +62,9 @@ Issues tagged as `good first issue` should be a good place to start.
 
 If you're ready to contribute code, see the [contribution guide](https://github.com/ajwad-shaikh/BusKaro/blob/master/CONTRIBUTING.md).
 
-## HacktoberFest 2019
+## HacktoberFest 2020
 
-- The repository is open to contributions during HacktoberFest 2019.
+- The repository is open to contributions during HacktoberFest 2020.
 - Issues labelled **HacktoberFest** are designed to encourage first-time contributors.
 - Please read the [contribution guide](https://github.com/ajwad-shaikh/BusKaro/blob/master/CONTRIBUTING.md) thoroughly for more before sending in Pull Requests.
 
